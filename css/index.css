@@ -180,7 +180,7 @@ template {
 }
 
 @font-face { font-family:MyFont;
-src: url(../font/webmo.woff2)}
+src: url(https://cdn.jsdelivr.net/gh/emeomo/vieu@master/webmo.woff2)}
 body{font-family:MyFont!important;}
 .limit-one-line,
 .flink#article-container .flink-list > .flink-list-item a .flink-item-name,
