@@ -4,6 +4,29 @@
   
     
     <entry>
+      <title>WPS-Office中表格小问题</title>
+      <link href="p/wps_1.html/"/>
+      <url>p/wps_1.html/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="WPS"><a href="#WPS" class="headerlink" title="WPS"></a>WPS</h1><p>[WPS Office](<a href="https://baike.baidu.com/item/WPS">https://baike.baidu.com/item/WPS</a> Office)是由<a href="https://baike.baidu.com/item/%E9%87%91%E5%B1%B1%E8%BD%AF%E4%BB%B6%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/5656242">金山软件股份有限公司</a>自主研发的一款<a href="https://baike.baidu.com/item/%E5%8A%9E%E5%85%AC%E8%BD%AF%E4%BB%B6/4703331">办公软件</a>套装，可以实现<a href="https://baike.baidu.com/item/%E5%8A%9E%E5%85%AC">办公</a>软件最常用的文字、表格、演示，PDF阅读等多种功能。大家都知道微软的Microsoft Office是收费的，而WPS Office个人版对个人用户永久免费，包含<a href="https://baike.baidu.com/item/WPS%E6%96%87%E5%AD%97">WPS文字</a>、WPS表格、WPS演示三大功能模块，另外有PDF阅读功能。本着白嫖精神本质，所以我使用的WPS。</p><h1 id="Excel"><a href="#Excel" class="headerlink" title="Excel"></a>Excel</h1><html><body><script src="https://cdn.jsdelivr.net/npm/hls.js"></script><video id="video_excel" preload muted loop autoplay style="height: 100%;width: 100%;object-fit: cover;"></video><script>  var video = document.getElementById('video_excel');  var videoSrc = 'https://cdn.jsdelivr.net/gh/xiaopengand/blogCdn@master/video/wps/wps1.m3u8';  if (Hls.isSupported()) {    var hls = new Hls();    hls.loadSource(videoSrc);    hls.attachMedia(video);    hls.on(Hls.Events.MANIFEST_PARSED, function() {      video.play();    });  }</script></body></html><p><code>在编辑Excel表格时症状会如上视频所示，有时输入会失败，并没有替换原来的内容。但有时却可以。</code></p><p>百度找问题所在。大部分回答是文字内容与表格背景色相同，导致文本内容不可见，或者是表格锁住，输入不了内容。很明显不是这两种情况。</p><h1 id="找寻原因"><a href="#找寻原因" class="headerlink" title="找寻原因"></a>找寻原因</h1><p>在输入Excel可以按键盘的上下左右（↑↓←→）键来选择单元格，而有些人就喜欢按键盘来控制选择的单元格。一般情况下没有问题的，但是当你的单元表格是<strong>合并</strong>时，问题就出现了。</p><h1 id="问题复现"><a href="#问题复现" class="headerlink" title="问题复现"></a>问题复现</h1><p><img src= "https://gitee.com/Xpand/img/raw/master/milkloading.gif" data-lazy-src="https://gitee.com/Xpand/img/raw/master/20210325114223.png" alt="Snipaste_2021-03-25_11-38-03"></p><p>此时想修改<strong>明天</strong>的内容为<strong>今天</strong></p><p>按下键盘左(←)键</p><p><img src= "https://gitee.com/Xpand/img/raw/master/milkloading.gif" data-lazy-src="https://gitee.com/Xpand/img/raw/master/20210325114348.png" alt="Snipaste_2021-03-25_11-40-02"></p><p>此时定位框已经选中<strong>明天</strong>，但注意看此时B1的内容为空</p><p><img src= "https://gitee.com/Xpand/img/raw/master/milkloading.gif" data-lazy-src="https://gitee.com/Xpand/img/raw/master/20210325114535.png" alt="Snipaste_2021-03-25_11-40-24"></p><p>修改选中框的内容改为<strong>今天</strong>，此时实际操作的是B1</p><p><img src= "https://gitee.com/Xpand/img/raw/master/milkloading.gif" data-lazy-src="https://gitee.com/Xpand/img/raw/master/20210325114644.png" alt="Snipaste_2021-03-25_11-40-39"></p><p>修改完回车发现内容并未改变。</p><p><img src= "https://gitee.com/Xpand/img/raw/master/milkloading.gif" data-lazy-src="https://gitee.com/Xpand/img/raw/master/20210325120340.png" alt="Snipaste_2021-03-25_11-47-21"></p><p>用鼠标定位选中，此时恍然大悟。</p><h1 id="强行解释"><a href="#强行解释" class="headerlink" title="强行解释"></a>强行解释</h1><p>我没有看过wps的源代码，以下内容纯属自己脑补，瞎猜。</p><p>原来单元格合并后，此时真实的值储存是A1中，B1中其实是空值，而且你在往B1中输入任意值，确定时，程序会做出大致如下判断</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if（B1是不是合并单元格&amp;&amp;B1不是合并单元格的开始）&#123;</span><br><span class="line">B1&#x3D;&#x3D;空;</span><br><span class="line">&#125;else&#123;</span><br><span class="line">B1&#x3D;&#x3D;输入的值;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>所以这种情况，看似你选中了你要修改文字，实际上你并没有。</p><h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><ol><li><p>用鼠标点击你需要修改的位置。</p></li><li><p>如果你是按键盘重度患者，请在选择观察，上方的编辑框（观察编辑框中有没有内容），看你是否是真的选中了，wps中合并单元格的真实储存是在单元格开始的第一个格中。向上图情况中C1到需要修改的内容A1就需要按下两次左（←），这也就是会出现为什么又是可以编辑，但有时候不能编辑。</p></li><li><p>还没找到，因为我不知道用什么关键字搜索，才能描述清楚这个问题。所以有大佬知道怎么解决的话，请告诉我。</p></li></ol><h1 id="我真是无聊透顶"><a href="#我真是无聊透顶" class="headerlink" title="我真是无聊透顶"></a>我真是无聊透顶</h1><p>生活小技巧，当我们发现在用excel表格时，发现怎么修改都修改不成功时，我们就可以用小鼠标点击需要修改的内容，然后再修改，你就会发现神奇的成功了。</p><html><body><script src="https://cdn.jsdelivr.net/npm/hls.js"></script><video id="video_wlq" preload muted loop autoplay style="height: 100%;width: 100%;object-fit: cover;"></video><script>  var video = document.getElementById('video_wlq');  var videoSrc = 'https://cdn.jsdelivr.net/gh/xiaopengand/blogCdn@master/video/wlq/wlqhz.m3u8';  if (Hls.isSupported()) {    var hls = new Hls();    hls.loadSource(videoSrc);    hls.attachMedia(video);    hls.on(Hls.Events.MANIFEST_PARSED, function() {      video.play();    });  }</script></body></html>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> WPS </tag>
+            
+            <tag> Office </tag>
+            
+            <tag> Excel </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>VMware 虚拟机使用教程</title>
       <link href="p/VMware.html/"/>
       <url>p/VMware.html/</url>
