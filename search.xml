@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>hexo文章加密测试</title>
+      <link href="/p/cl29vcfsq00003kqx7gdm4qwt.html/"/>
+      <url>/p/cl29vcfsq00003kqx7gdm4qwt.html/</url>
+      
+        <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">  <script id="hbeData" type="hbeData" data-hmacdigest="4e035e102d6af0e1ade80f1bc1bb40cf8817708b504023e32310e2fee0137798">165d50f05814027fb7fe5e4ae8a088d8f56f9f99da4d666013e31ffb8bb0171fc7fb7e123a0dbdaace91d8f5befd348f68f3bcc4e96bdfebb15056a3980290f29c0c120b90ffb0cebc9c31a4d04c449736356c55b2d7373006ea60b2b254a672740e83f89b3c70817f925dad9048b6b6b1fc574cd4458bcf86b4ed6499fb3c4917e412d204a7e73de96aa06688e45d953d7749b7af00e9bd1af4bcbfb52c4c6db0c4779762facd60dac52625ee402bed23dd3b0f0f0345ac5f46272612607a94dbf19836afda7be5e91e19bf3cf903e26df99492abe24a2384bdc217f10573d2c2195926f46b9c68d8606e643286f6d65ce352ef193e370b92de92d4c03c3918df2b497393ad68e28eb3bb4f59e0db2d9aa7f8767ce9b7dda746931553c9ba2117c42cb106078d0ef3205660f4104defdee02e74e6be5829fc7c75a4d82f0e49fe3649fb2372e7c0ebf4fb5acacc401fbf433632d606927f7a149759601d30c6ac7d3ba81b746c4ee2704e53d2c5ec3c8fb358d3c52a2524450083c81fb63ac340c0adef55bd343d82a1e213d600547713984e84c1abd17a40125ff1adbf83435a94ac8dbe473d112e25e1c700508d57</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-default">      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-default">hexo文章加密测试</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>VMware 虚拟机开机自启</title>
       <link href="/p/VMware1.html/"/>
       <url>/p/VMware1.html/</url>
