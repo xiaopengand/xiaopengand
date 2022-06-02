@@ -4550,7 +4550,7 @@ _:future,
   background: var(--btn-hover-color);
 }
 #vcomment textarea {
-  background: url("https://cdn.jsdelivr.net/gh/xiaopengand/img@latest/2020/12/17/8f526379bffcc2af1659c14e1fc71a60.png") 100% 100% no-repeat;
+  background: url("https://fastly.jsdelivr.net/gh/xiaopengand/img@latest/2020/12/17/8f526379bffcc2af1659c14e1fc71a60.png") 100% 100% no-repeat;
 }
 #vcomment textarea:focus {
   background-image: none;
